@@ -6,8 +6,11 @@ import 'normalize.css';
 import { Button } from 'vant';
 import { RadioGroup, Radio } from 'vant';
 import { ConfigProvider } from 'vant';
-import 'vant/lib/index.css';
+import { Divider } from 'vant';
+import { Circle } from 'vant';
+import { NoticeBar } from 'vant';
 
+import 'vant/lib/index.css';
 import App from './App.vue';
 
 const app = createApp(App);
@@ -16,5 +19,8 @@ app.use(Button);
 app.use(RadioGroup);
 app.use(Radio);
 app.use(ConfigProvider);
+app.use(Divider);
+app.use(Circle);
+app.use(NoticeBar);
 
 app.mount('#app');
