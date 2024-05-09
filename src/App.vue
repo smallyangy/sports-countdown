@@ -148,7 +148,7 @@ import { computed } from 'vue';
 
 const currentTime = ref(dayjs().format('HH:mm:ss'));
 
-const timer = ref(null);
+const timer = ref<number | undefined>(undefined);
 
 // 时间设置
 const countdown = useStorage(
@@ -225,7 +225,7 @@ const startInterval = () => {
     }, 1000);
 };
 
-const createAudio = (src) => {
+const createAudio = (src: string) => {
     const audio = document.createElement('audio');
     audio.src = src;
     return audio;
@@ -233,7 +233,7 @@ const createAudio = (src) => {
 // 播放音效
 const sound1 = createAudio('https://imgcdn.huanjutang.com/image/2024/05/09/e0862fe78340f1bfbc2d65789577c1b5.mp3');
 const sound2 = createAudio('https://imgcdn.huanjutang.com/image/2024/05/09/951628d9940fa6059ac183ad65ec7947.mp3');
-const handlePlaySound = (type) => {
+const handlePlaySound = (type: number) => {
   if (type === 1) sound1.play();
   if (type === 2) sound2.play();
 }
@@ -296,7 +296,7 @@ onMounted(() => {
 });
 onUnmounted(() => {
     clearInterval(timer.value);
-    timer.value = null;
+    timer.value = undefined;
 });
 </script>
 
